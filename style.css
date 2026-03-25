@@ -1,0 +1,452 @@
+body {
+  min-height: 100vh;
+  background-image:
+    radial-gradient(#a3b8ff 1.5px, transparent 1.5px),
+    radial-gradient(circle, #e6ecff 0%, #c4d4ff 100%);
+  background-size:
+    40px 40px,
+    cover;
+  background-position:
+    0 0,
+    center;
+  background-repeat: repeat, no-repeat;
+}
+
+.header-bar {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(to right, #0e2156 35%, #173487, #183790 100%);
+  padding-left: 20px;
+  padding-right: 0;
+  box-sizing: border-box;
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  white-space: nowrap;
+
+  animation: headerSlideDown 0.8s ease-out forwards;
+}
+
+.utt-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+
+  animation: headerSlideDown 0.8s ease-out 0.2s backwards;
+}
+
+.logo-image {
+  width: auto;
+  height: 100px;
+  margin-right: 15px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 45px;
+  line-height: 1.2;
+  color: white;
+  font-family: "1FTV Heavitas", sans-serif;
+  font-size: 11px;
+  margin-left: -15px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.train {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.train-image {
+  height: 60px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+
+  animation: trainSlideIn 1.2s ease-out 0.5s backwards;
+}
+
+.to-dao-tao {
+  text-decoration: none;
+  background-image: linear-gradient(
+    to right,
+    #173487 0%,
+    #0e2156 50%,
+    #173487 100%
+  );
+  color: white;
+  padding: 12px 30px;
+  font-family: "Bahnschrift", sans-serif;
+  border-radius: 15px;
+  font-size: 14px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  margin: 0 20px;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-size: 200% auto;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.4s ease;
+
+  animation: headerSlideUp 0.8s ease-out 1.5s backwards;
+}
+
+.to-dao-tao:hover {
+  background-position: right center;
+  box-shadow: 0 4px 15px rgba(23, 52, 135, 0.6);
+  transform: translateY(-2px);
+}
+
+.to-utt {
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.to-utt .logo-text {
+  color: white;
+}
+
+.to-utt:hover {
+  opacity: 0.8;
+  transition: 0.3s;
+  transform: scale(1.05);
+}
+
+.dot-online {
+  width: 20px;
+  height: 20px;
+  background-color: #2ecc71;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: -40px;
+  opacity: 0;
+
+  animation:
+    fadeInDot 2s ease-out forwards,
+    pulse 2s infinite ease-in-out 0.5s;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title-main,
+.title-sub {
+  background: linear-gradient(to right, #0e2156 35%, #173487, #183790 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1.3;
+  position: relative;
+}
+
+.title-main {
+  font-family: "1FTV Heavitas", sans-serif;
+  font-size: 56px;
+  text-transform: uppercase;
+  z-index: 1000;
+  display: inline-block;
+  animation: headerSlideDown 0.8s ease-out 0.4s backwards;
+}
+
+.title-sub {
+  font-family: "Raleway ExtraBold", sans-serif;
+  font-size: 32px;
+  font-style: italic;
+  z-index: 1100;
+  margin-top: -15px;
+  animation: headerSlideDown 0.8s ease-out 0.6s backwards;
+}
+
+.title-sub-sub {
+  font-family: "Bahnschrift", sans-serif;
+  font-size: 14px;
+  color: #555;
+  position: relative;
+  z-index: 1200;
+  display: block;
+  animation: headerSlideDown 0.8s ease-out 0.8s backwards;
+}
+
+.chat-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  width: 60%;
+  max-width: 800px;
+  margin: 0;
+  background-color: rgba(60, 90, 160, 0.4);
+  border: 4px solid #173487;
+  border-radius: 50px;
+  padding: 6px 6px 6px 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+  opacity: 0;
+  margin-top: 100px;
+  animation: fadeInUp 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  animation-delay: 0.5s;
+
+  transition:
+    top 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    width 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.chat-form.moved {
+  top: calc(100vh - 100px);
+  transform: translate(-50%, -100%);
+  width: 70%;
+}
+
+#user-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Raleway ExtraBold", sans-serif;
+  min-width: 0;
+  font-size: 18px;
+}
+
+#user-input::placeholder {
+  color: white;
+  opacity: 0.9;
+}
+
+.send-button {
+  background-image: linear-gradient(
+    to right,
+    #173487 0%,
+    #0e2156 50%,
+    #173487 100%
+  );
+  background-size: 200% auto;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.send-button:hover {
+  background-position: right center;
+  box-shadow: 0 4px 15px rgba(23, 52, 135, 0.6);
+  transform: translateY(-2px);
+}
+
+#chat-messages {
+  width: 60%;
+  max-width: 800px;
+  margin: 100px auto 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.message {
+  padding: 12px 20px;
+  border-radius: 20px;
+  max-width: 70%;
+  font-size: 16px;
+  font-family: "Raleway ExtraBold", sans-serif;
+  line-height: 1.5;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+.user-message {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #173487, #0e2156);
+  color: white;
+  border-bottom-right-radius: 2px;
+}
+
+.bot-message {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.8);
+  color: #173487;
+  border: 1px solid #173487;
+  border-bottom-left-radius: 2px;
+}
+
+.typing {
+  display: flex;
+  gap: 5px;
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  width: fit-content;
+  margin-bottom: 10px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #173487;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+.dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes headerSlideDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes trainSlideIn {
+  0% {
+    transform: translateX(150%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .title-main {
+    font-size: 36px;
+  }
+  .title-sub {
+    font-size: 20px;
+    margin-top: -5px;
+  }
+  .chat-form {
+    width: 95%;
+    padding: 4px 4px 4px 20px;
+    box-sizing: border-box;
+  }
+  .send-button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}
+
+@media (max-height: 700px) {
+  .chat-header {
+    margin: 10px auto;
+  }
+
+  .chat-form {
+    top: 65%;
+  }
+}
+
+@media (max-height: 500px) {
+  .chat-form {
+    top: 75%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 5px rgba(46, 204, 113, 0.2);
+    opacity: 0.6;
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.8);
+    opacity: 1;
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(46, 204, 113, 0.2);
+    opacity: 0.6;
+  }
+}
+
+@keyframes headerSlideUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    margin-top: 0;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes fadeInDot {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
